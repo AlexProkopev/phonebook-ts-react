@@ -1,14 +1,19 @@
 import { ChangeEvent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setFilter } from "../../redux/contacts/contactsSlice";
+import { selectFilter } from "../../redux/contacts/contacts.selectors";
 
-type Props = {
-    value: string;
-    onChange: (e:ChangeEvent<HTMLInputElement>) => void
-}
 
-const FilterInput = ({value,onChange}: Props) => {
+const FilterInput = () => {
+  const dispatch = useDispatch()
+  const valueFilter = useSelector(selectFilter)
+ 
+   const onFilter = (event: ChangeEvent<HTMLInputElement>) => {
+    dispatch(setFilter(event.target.value));
+  };
 
   return (
-    <input type="text" onChange={onChange} value={value} placeholder="enter the text"/>
+    <input type="text" onChange={onFilter} value={valueFilter} placeholder="enter the text"/>
   )
 }
 
