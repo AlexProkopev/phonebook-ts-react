@@ -6,11 +6,8 @@ import {
 } from "../../redux/contacts/contacts.selectors";
 import { Contact } from "../../types/types";
 import ContactsListItem from "./ContactsListItem/ContactsListItem";
-import {
-  deletedContact,
-  editContact,
-  setEditingContactId,
-} from "../../redux/contacts/contactsSlice";
+import { deletedContact } from "src/redux/contacts/contacts.operations";
+
 
 const ContactsList = () => {
   const contacts = useSelector(selectContactsData);
@@ -19,19 +16,19 @@ const ContactsList = () => {
   const dispatch = useDispatch();
 
   const onDelete = (id: string) => {
-    dispatch(deletedContact(id));
+    dispatch<any>(deletedContact(id));
   }; // Delete
 
   const onEditContact = (id: string) => {
-    dispatch(setEditingContactId(id));
+    // dispatch(setEditingContactId(id));
   };
 
   const onCloseEditing = () => {
-    dispatch(setEditingContactId(null));
+    // dispatch(setEditingContactId(null));
   };
 
   const onSaveEditContact = (newDataContact: Omit<Contact, "id">) => {
-    dispatch(editContact(newDataContact));
+    // dispatch(editContact(newDataContact));
   };
 
   const filteredContacts = contacts?.filter((contact) =>

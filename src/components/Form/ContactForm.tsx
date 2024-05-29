@@ -2,8 +2,9 @@ import { Contact } from "../../types/types";
 import { useFormik } from "formik";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
+import { addContact } from "src/redux/contacts/contacts.operations";
 import * as Yup from "yup";
-import { addContact } from "../../redux/contacts/contactsSlice";
+
 
 const schema = Yup.object({
   name: Yup.string()
@@ -33,7 +34,7 @@ const ContactForm = () => {
         id: nanoid(),
         ...values,
       };
-      dispatch(addContact(finalContact));
+      dispatch<any>(addContact(finalContact));
       actions.resetForm();
     },
     validationSchema: schema,

@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilter } from "../../redux/contacts/contactsSlice";
+
 import { selectFilter } from "../../redux/contacts/contacts.selectors";
 
 
@@ -9,7 +9,7 @@ const FilterInput = () => {
   const valueFilter = useSelector(selectFilter)
  
    const onFilter = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setFilter(event.target.value));
+    // dispatch(setFilter(event.target.value));
   };
 
   return (

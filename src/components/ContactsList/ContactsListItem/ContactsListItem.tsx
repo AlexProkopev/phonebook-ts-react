@@ -1,3 +1,4 @@
+
 import { Contact } from "../../../types/types";
 import EditContactForm from "../../EditContactsForm/EditContactsForm";
 
@@ -20,6 +21,7 @@ const ContactsListItem = ({
   onSaveEditContact,
   editingContactId,
 }: Props) => {
+  
   const isContactEditing = editingContactId === id;
   return (
     <li>
